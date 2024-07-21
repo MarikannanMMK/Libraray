@@ -10,27 +10,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
-
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long bookId;
+    private int id;
     @NotBlank
-    @Size(max = 250)
-    private String title;
+    @Size(max=250)
+    private String firstName;
     @NotBlank
-    @Size(max = 250)
-    private String authorName;
+    @Size(max=250)
+    private String lastName;
+    @NotBlank
+    @Size(max=250)
+    private String email;
+    @NotBlank
+    private String password;
+    @NotBlank
+    @Size(max=250)
+    private String memberId;
+    @NotBlank
+    @Size(max=250)
+    private String member;
+    private String role;
 
-    private long ISBN;
-
-    private Date publicationDate;
-
-    private int availableStock;
 
 }
