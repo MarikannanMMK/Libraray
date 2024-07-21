@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MemberController {
+public class LoginController {
 
     @Autowired
     private UserService userService;
@@ -28,7 +28,6 @@ public class MemberController {
     public ResponseEntity<String> login(@RequestBody UserRequest userRequest)
     {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUserName(),userRequest.getPassword()));
-        System.out.println("---------USERNAME And PASSWORD------------"+userRequest.getUserName() + "and "+userRequest.getPassword());
         String token = jwtUtil.generateToken(userRequest.getUserName());
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }

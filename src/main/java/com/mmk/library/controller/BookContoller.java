@@ -7,9 +7,9 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.format.DecimalStyle;
 import java.util.List;
 
 @RestController
@@ -24,25 +24,29 @@ public class BookContoller {
         return "Welcome";
     }
 
-    @PostMapping(value = "/saveBook")
+    @PostMapping(value = "/create")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Book> saveBook(@Valid @RequestBody Book book) {
         Book savedBook = bookService.saveBook(book);
         return new ResponseEntity<Book>(savedBook, HttpStatus.CREATED);
     }
     @GetMapping(value = "/allBooks")
+    @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER') ")
     public ResponseEntity<List<Book>> getAllBooks(){
         List<Book> bookList = bookService.getAllBooks();
         return new ResponseEntity<List<Book>>(bookList,HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{bookId}")
+    @DeleteMapping(value = "delete/{bookId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "This Method is for Delete Book object By Providing Book ID as input")
     public ResponseEntity<String> deleteBookById(@PathVariable Integer bookId) {
         bookService.deleteBook(bookId);
         String msg = "Book With ID :" + bookId + " Deleted Successfully";
         return new ResponseEntity<String>(msg, HttpStatus.OK);
     }
-    @PutMapping(value = "/updateBook")
+    @PutMapping(value = "/update")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "This Method is for update the Book Details and this method returns Updated Book Object")
     public ResponseEntity<Book> updateBook(@Valid @RequestBody Book Book) {
         Book updatedBook = bookService.updateBook(Book);

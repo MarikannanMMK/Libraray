@@ -3,14 +3,11 @@ package com.mmk.library.service;
 import com.mmk.library.entity.User;
 import com.mmk.library.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -32,7 +29,7 @@ public class CustomUserDetailService implements UserDetailsService {
         if(user == null && !(email.equalsIgnoreCase("admin123@gmail.com"))) {
             throw  new UsernameNotFoundException("No User Found");
         }
-        else if (email.equalsIgnoreCase("admin123@gmail.com")){
+        else if (user == null && email.equalsIgnoreCase("admin123@gmail.com")){
 
             User adminUser = new User();
 
