@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,8 +28,10 @@ public class LoginController {
     @PostMapping(value = "/login")
     public ResponseEntity<String> login(@RequestBody UserRequest userRequest)
     {
+        //System.out.println("User name : "+userRequest.getUserName()+" password : "+userRequest.getPassword());
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUserName(),userRequest.getPassword()));
         String token = jwtUtil.generateToken(userRequest.getUserName());
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
+
 }

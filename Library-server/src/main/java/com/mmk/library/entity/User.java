@@ -36,6 +36,7 @@ public class User {
     @Size(max=250)
     private String member;
     private String role;
+    private String isEnable;
 
 
 }

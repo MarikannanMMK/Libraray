@@ -4,6 +4,8 @@ import com.mmk.library.entity.Book;
 import com.mmk.library.exception.BookNotFoundException;
 import com.mmk.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,12 +29,6 @@ public class BookServiceImpl implements BookService {
     }
 
 
-    //    @Override
-//    public List<Book> getAllBooks() {
-//        List<Book> allBooks = brepo.findAll();
-//        return allBooks;
-//    }
-
     @Override
     public Book findBookById(long bookId) {
         return bookRepository.findById(bookId)
@@ -46,6 +42,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Page<Book> getAllBookswithPagination(int offset, int pagSize) {
+        Page<Book> books = bookRepository.findAll(PageRequest.of(offset,pagSize));
+        return books;
+    }
+
+    @Override
     public Book updateBook(Book book) {
         bookRepository.findById(book.getBookId()).orElseThrow(
                 () -> new BookNotFoundException("Book With Given ID :" + book.getBookId() + " Not Available"));
@@ -56,4 +58,5 @@ public class BookServiceImpl implements BookService {
         book1.setISBN(book.getISBN());
         return bookRepository.save(book1);
     }
+
 }

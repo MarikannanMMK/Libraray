@@ -10,9 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class CustomUserDetailService implements UserDetailsService {
@@ -21,6 +19,8 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Autowired
     private UserService userService;
+
+    public static  Map<String,String> USER_ROLES = new HashMap<>();
 
 
     @Override
@@ -58,9 +58,12 @@ public class CustomUserDetailService implements UserDetailsService {
 
     private Collection<? extends GrantedAuthority> getAuthorities(List<String> roles) {
         List<GrantedAuthority>  authorities = new ArrayList<>();
+
         for(String role: roles) {
+            USER_ROLES.put("role",role);
             authorities.add(new SimpleGrantedAuthority(role));
         }
+
         return authorities;
     }
 }
