@@ -58,9 +58,19 @@ public class BookContoller {
     @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "This Method is for fetching all the  Book Details with Pagination Details")
     public ResponseEntity<Page<Book>> getAllWithPagination(@PathVariable("offset")  int offset , @PathVariable("pageSize") int pagSize){
-        Page<Book> books = bookService.getAllBookswithPagination(offset,pagSize);
+        Page<Book> books = bookService.getAllBooksWithPagination(offset,pagSize);
         return new ResponseEntity<>(books,HttpStatus.OK);
 
     }
+
+    @GetMapping(value = "/searchByKeyword")
+    @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER')")
+    public ResponseEntity<List<Book>> getAllBooksWithKeyword(@RequestParam String keyWord){
+        List<Book> searchBookList = bookService.getSearchByKeyword(keyWord);
+        return new ResponseEntity<List<Book>>(searchBookList,HttpStatus.OK);
+    }
+
+
+
 
 }

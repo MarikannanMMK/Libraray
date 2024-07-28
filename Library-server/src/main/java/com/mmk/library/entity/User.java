@@ -37,6 +37,7 @@ public class User {
     private String member;
     private String role;
     private String isEnable;
+    private String issuedBookCount;
 
 
 }

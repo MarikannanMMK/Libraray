@@ -55,4 +55,12 @@ public class UserController {
         User updatedUser = userService.updateUser(user);
         return new ResponseEntity<User>(updatedUser, HttpStatus.ACCEPTED);
     }
+
+    public ResponseEntity<List<User>> searchByKeyword(@RequestParam String keyWord){
+
+        List<User> searchUserList = userService.searchByKeyword(keyWord);
+
+        return  new ResponseEntity<List<User>>(searchUserList , HttpStatus.OK);
+
+    }
 }

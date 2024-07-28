@@ -60,4 +60,10 @@ public class UserServiceImpl implements UserService {
         updatedUser.setIsEnable("No");
         userRepository.save(updatedUser);
     }
+
+    @Override
+    public List<User> searchByKeyword(String keyWord) {
+
+        return userRepository.findBySearchKeyword(keyWord);
+    }
 }

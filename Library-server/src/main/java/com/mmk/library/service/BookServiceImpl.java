@@ -42,7 +42,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Page<Book> getAllBookswithPagination(int offset, int pagSize) {
+    public List<Book> getSearchByKeyword(String keyWord) {
+
+        return bookRepository.findBySearchKeyword(keyWord);
+    }
+
+    @Override
+    public Page<Book> getAllBooksWithPagination(int offset, int pagSize) {
         Page<Book> books = bookRepository.findAll(PageRequest.of(offset,pagSize));
         return books;
     }

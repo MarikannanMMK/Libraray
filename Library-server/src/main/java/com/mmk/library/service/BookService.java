@@ -17,5 +17,7 @@ public interface BookService {
 
     List<Book> getAllBooks();
 
-    Page<Book> getAllBookswithPagination(int offset, int pagSize);
+    Page<Book> getAllBooksWithPagination(int offset, int pageSize);
+
+    List<Book> getSearchByKeyword(String keyWord);
 }

@@ -16,7 +16,7 @@ public class TransactionDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int transcationId;
+    private int transactionId;
 
     private LocalDateTime issueDate;
 

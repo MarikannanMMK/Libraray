@@ -12,4 +12,6 @@ public interface UserService {
     User updateUser(User user);
 
     void disableUserById(Integer userId);
+
+    List<User> searchByKeyword(String keyWord);
 }
