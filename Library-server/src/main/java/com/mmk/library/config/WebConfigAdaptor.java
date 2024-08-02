@@ -26,7 +26,7 @@ import java.util.List;
 @EnableMethodSecurity
 public class WebConfigAdaptor{
 
-        private static final String[] WHITE_LIST_URLS = {"/login","/v3/api-docs/**",
+        private static final String[] WHITE_LIST_URLS = {"/login","/refreshToken","/v3/api-docs/**",
                 "/swagger-ui/**",
                 "/swagger-ui.html"};
 

@@ -49,6 +49,16 @@ public class JWTUtil {
                 .setSubject(username)
                 .setIssuer("LIB-TOKEN")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30)))
+                .signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encode(secretKey.getBytes()))
+                .compact();
+    }
+    public String generateRefreshToken(String username) {
+
+        return Jwts.builder().setId("LIBRARY-REF")
+                .setSubject(username)
+                .setIssuer("LIB-REF-TOKEN")
+                .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(10)))
                 .signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encode(secretKey.getBytes()))
                 .compact();
