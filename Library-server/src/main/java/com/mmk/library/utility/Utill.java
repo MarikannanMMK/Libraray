@@ -4,35 +4,26 @@ import com.mmk.library.model.EmailDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Utill {
 
     @Autowired
     private JavaMailSender javaMailSender;
 
-    @Autowired
-    private EmailDetails emailDetails;
-
-    public String sendMail(){
+    public String sendMail(EmailDetails emailDetails) {
         try {
 
-            // Creating a simple mail message
-            SimpleMailMessage mailMessage
-                    = new SimpleMailMessage();
-
-            // Setting up necessary details
-            mailMessage.setFrom("admin123@gmail.com");
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setFrom("marikannan27@gmail.com");
             mailMessage.setTo(emailDetails.getRecipient());
             mailMessage.setText(emailDetails.getMsgBody());
             mailMessage.setSubject(emailDetails.getSubject());
-
-            // Sending the mail
             javaMailSender.send(mailMessage);
+            System.out.println("Mail sent");
             return "Mail Sent Successfully...";
-        }
-
-        // Catch block to handle the exceptions
-        catch (Exception e) {
+        } catch (Exception e) {
             return "Error while Sending Mail";
         }
     }

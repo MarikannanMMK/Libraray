@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/book")
-public class BookContoller {
+public class BookController {
 
     @Autowired
    private BookService bookService;
@@ -27,12 +27,14 @@ public class BookContoller {
 
     @PostMapping(value = "/create")
     @PreAuthorize("hasAuthority('ADMIN')")
+    @Operation(summary = "This Method is for save a new Book object By Providing Book object as Input")
     public ResponseEntity<Book> saveBook(@Valid @RequestBody Book book) {
         Book savedBook = bookService.saveBook(book);
         return new ResponseEntity<Book>(savedBook, HttpStatus.CREATED);
     }
     @GetMapping(value = "/allBooks")
     @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER') ")
+    @Operation(summary = "This Method is for get all the  Book objects")
     public ResponseEntity<List<Book>> getAllBooks(){
         List<Book> bookList = bookService.getAllBooks();
         return new ResponseEntity<List<Book>>(bookList,HttpStatus.OK);
@@ -65,6 +67,7 @@ public class BookContoller {
 
     @GetMapping(value = "/searchByKeyword")
     @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER')")
+    @Operation(summary = "This Method is for fetching Book object By Providing a keyword")
     public ResponseEntity<List<Book>> getAllBooksWithKeyword(@RequestParam String keyWord){
         List<Book> searchBookList = bookService.getSearchByKeyword(keyWord);
         return new ResponseEntity<List<Book>>(searchBookList,HttpStatus.OK);

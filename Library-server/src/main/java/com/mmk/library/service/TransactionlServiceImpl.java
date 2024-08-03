@@ -5,11 +5,14 @@ import com.mmk.library.entity.TransactionDetail;
 import com.mmk.library.entity.User;
 import com.mmk.library.exception.BookNotFoundException;
 import com.mmk.library.exception.UserNotFoundException;
+import com.mmk.library.model.EmailDetails;
 import com.mmk.library.repository.BookRepository;
 import com.mmk.library.repository.TransactionRepository;
 import com.mmk.library.repository.UserRepository;
+import com.mmk.library.utility.Utill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.time.LocalDateTime;
 
@@ -26,6 +29,9 @@ public class TransactionlServiceImpl implements TransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private Utill utill;
 
     @Override
     public TransactionDetail newTransaction(int userId, long bookId) {
@@ -46,7 +52,11 @@ public class TransactionlServiceImpl implements TransactionService {
         }
         bookRepository.save(requestedBook);
         transactionRepository.save(transactionDetail);
-        //need to send mail.
+        EmailDetails emailDetails = new EmailDetails();
+        emailDetails.setRecipient(borrowedUser.getEmail());
+        emailDetails.setSubject("New book is borrowed from the Library" );
+        emailDetails.setMsgBody("Hello Student new book with the name "+ requestedBook.getTitle()+"is from library on "+String.valueOf(localDateTime.now()));
+        utill.sendMail(emailDetails);
         return transactionDetail;
     }
 }

@@ -14,7 +14,22 @@ function Books() {
 
   const fields = bookFormFields;
 
-  const { control, register, handleSubmit } = useForm();
+  const [selectedRow, setSelectedRow] = useState();
+
+  const { control, register, handleSubmit } = useForm({
+    defaultValues: {
+      bookTitle: "Java",
+      authorName: "marikannan",
+      publicationDate: "",
+      isbnNumber: "",
+    },
+  });
+
+  // useEffect(() => {
+  //   if (selectedRow != null) {
+  //     reset(selectedRow);
+  //   }
+  // }, [reset]);
 
   const fetchBookList = async () => {
     try {
@@ -29,15 +44,6 @@ function Books() {
   useEffect(() => {
     fetchBookList();
   }, []);
-
-  // const arrayDataItems = bookList.map((book) => (
-  //   <li key={book.bookId}>
-  //     <p>{book.title}</p>
-  //     <span>{book.authorName}</span>
-  //     <p>{book.publicationDate}</p>
-  //     <p>{book.availableStock}</p>
-  //   </li>
-  // ));
 
   const columns = [
     {
@@ -74,17 +80,23 @@ function Books() {
       name: "Action",
       button: true,
       width: "15rem",
-      cell: () => {
+      cell: (row) => {
         return (
           <div className="flex gap-1">
-            <Button name="Update" setIsOpen={setIsOpen} />
-            <Button name="Request" />
+            <Button
+              name="Update"
+              isModal={true}
+              setIsOpen={setIsOpen}
+              row={row}
+              setSelectedRow={setSelectedRow}
+            />
+            <Button name="Request" isModal={false} />
           </div>
         );
       },
     },
   ];
-
+  console.log({ selectedRow });
   return (
     <>
       <div className="container flex mx-auto mt-12">
@@ -101,7 +113,6 @@ function Books() {
                 <Input
                   {...register(field.id)}
                   key={field.id}
-                  value={field.id}
                   labelText={field.labelText}
                   labelFor={field.labelFor}
                   id={field.id}
@@ -109,9 +120,18 @@ function Books() {
                   type={field.type}
                   isRequired={field.isRequired}
                   placeholder={field.placeholder}
-                  showlabel={false}
+                  showlabel={true}
                 />
               ))}
+              <div className="flex gap-4">
+                <button className="btn btn-danger w-full">Delete</button>
+                <button
+                  className="btn btn-light w-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Cancel
+                </button>
+              </div>
             </Form>
           </div>
 
@@ -120,16 +140,7 @@ function Books() {
             <p className="text-sm text-gray-500">
               Are you sure you want to delete this item?
             </p>
-          </div>
-          <div className="flex gap-4">
-            <button className="btn btn-danger w-full">Delete</button>
-            <button
-              className="btn btn-light w-full"
-              onClick={() => setIsOpen(false)}
-            >
-              Cancel
-            </button>
-          </div> */}
+          */}
         </div>
       </Modal>
     </>

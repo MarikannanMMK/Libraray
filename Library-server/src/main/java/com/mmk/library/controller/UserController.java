@@ -3,8 +3,10 @@ package com.mmk.library.controller;
 
 import com.mmk.library.entity.Book;
 import com.mmk.library.entity.User;
+import com.mmk.library.model.EmailDetails;
 import com.mmk.library.repository.UserRepository;
 import com.mmk.library.service.UserService;
+import com.mmk.library.utility.Utill;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepositoy;
+
+    @Autowired
+    private Utill utill;
 
 
     @PostMapping(value = "/newUser")
@@ -56,11 +61,20 @@ public class UserController {
         return new ResponseEntity<User>(updatedUser, HttpStatus.ACCEPTED);
     }
 
+    @PostMapping("/searchByKeyword")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<User>> searchByKeyword(@RequestParam String keyWord){
 
         List<User> searchUserList = userService.searchByKeyword(keyWord);
-
         return  new ResponseEntity<List<User>>(searchUserList , HttpStatus.OK);
 
     }
+//    @PostMapping("/sentEmail")
+//    @PreAuthorize("hasAuthority('ADMIN')")
+//    public String sentEmail(@RequestBody EmailDetails emailDetails){
+//
+//        return utill.sendMail(emailDetails);
+//
+//    }
+
 }

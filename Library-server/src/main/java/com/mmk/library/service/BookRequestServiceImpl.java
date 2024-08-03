@@ -6,6 +6,8 @@ import com.mmk.library.repository.BookRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookRequestServiceImpl implements BookRequestService {
 
@@ -27,5 +29,10 @@ public class BookRequestServiceImpl implements BookRequestService {
         bookRequestRepository.save(updatedBook);
 
         return updatedBook;
+    }
+
+    @Override
+    public List<BookRequest> getAllBookRequest() {
+        return bookRequestRepository.findAll();
     }
 }

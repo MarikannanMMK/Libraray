@@ -4,34 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Admin and User API separation done and tested">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/LibraryApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/config/InvalidAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/config/JWTUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/config/JwtAuthFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/config/PasswordConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/config/WebConfigAdaptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/controller/BookContoller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/entity/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/exception/BookNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/model/UserRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/repository/BookRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/service/BookService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/service/BookServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/service/CustomUserDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmk/library/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/mmk/library/LibraryApplicationTests.java" beforeDir="false" />
+    <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Old client folder was deleted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-client/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/Library-client/src/components/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-client/src/pages/Books.js" beforeDir="false" afterPath="$PROJECT_DIR$/Library-client/src/pages/Books.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/BookRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/BookRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/event/listener/BookRequestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/event/listener/BookRequestListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/utility/Utill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/utility/Utill.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +42,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.LibraryApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LibraryApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.mmk.library.exception" />
@@ -123,7 +103,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721584248501</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Client Merging By intellj">
+      <option name="closed" value="true" />
+      <created>1722619036604</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722619036604</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Old client folder was deleted">
+      <option name="closed" value="true" />
+      <created>1722619520280</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722619520280</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,6 +136,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Upto Spring Security and JWT token" />
     <MESSAGE value="Admin and User API separation done and tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin and User API separation done and tested" />
+    <MESSAGE value="Client Merging By intellj" />
+    <MESSAGE value="Old client folder was deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Old client folder was deleted" />
   </component>
 </project>
