@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Old client folder was deleted" />
+    <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Old client folder was deleted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/serviceTest/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/BookRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/serviceTest/BookRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/serviceTest/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/TranscationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/serviceTest/TranscationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/serviceTest/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/src/test/java/com/mmk/library/controller/bookControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/test/java/com/mmk/library/serviceTest/bookServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

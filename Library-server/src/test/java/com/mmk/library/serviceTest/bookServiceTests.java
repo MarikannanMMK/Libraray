@@ -1,4 +1,4 @@
-package com.mmk.library.controller;
+package com.mmk.library.serviceTest;
 
 import com.mmk.library.entity.Book;
 import com.mmk.library.repository.BookRepository;
@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
-public class bookControllerTests {
+public class bookServiceTests {
 
     @InjectMocks
     private BookServiceImpl bookServiceImpl;
