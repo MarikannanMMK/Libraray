@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Old client folder was deleted">
+      <change afterPath="$PROJECT_DIR$/Library-server/src/test/java/com/mmk/library/controller/bookControllerTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-client/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/Library-client/src/components/Button.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library-client/src/pages/Books.js" beforeDir="false" afterPath="$PROJECT_DIR$/Library-client/src/pages/Books.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/BookRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/BookRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/event/listener/BookRequestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/event/listener/BookRequestListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/utility/Utill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/src/main/java/com/mmk/library/utility/Utill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

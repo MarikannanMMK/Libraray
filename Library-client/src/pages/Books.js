@@ -16,21 +16,16 @@ function Books() {
 
   const [selectedRow, setSelectedRow] = useState();
 
-  const { control, register, handleSubmit } = useForm({
+  const { control, register, handleSubmit} = useForm({
     defaultValues: {
-      bookTitle: "Java",
-      authorName: "marikannan",
-      publicationDate: "",
-      isbnNumber: "",
-    },
+      bookTitle: "Java"
+    }
   });
 
-  // useEffect(() => {
-  //   if (selectedRow != null) {
-  //     reset(selectedRow);
-  //   }
-  // }, [reset]);
-
+  // useEffect(()=>{
+  //   reset({bookTitle:"java"},{keepDefaultValues: true})
+  // },[reset])
+  
   const fetchBookList = async () => {
     try {
       const response = await api.get("/book/allBooks");
