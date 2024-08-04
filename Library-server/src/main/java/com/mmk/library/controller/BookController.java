@@ -18,10 +18,10 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-   private BookService bookService;
+    private BookService bookService;
 
     @GetMapping(value = "/test")
-    public String demo(){
+    public String demo() {
         return "Welcome";
     }
 
@@ -32,12 +32,13 @@ public class BookController {
         Book savedBook = bookService.saveBook(book);
         return new ResponseEntity<Book>(savedBook, HttpStatus.CREATED);
     }
+
     @GetMapping(value = "/allBooks")
     @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER') ")
     @Operation(summary = "This Method is for get all the  Book objects")
-    public ResponseEntity<List<Book>> getAllBooks(){
+    public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> bookList = bookService.getAllBooks();
-        return new ResponseEntity<List<Book>>(bookList,HttpStatus.OK);
+        return new ResponseEntity<List<Book>>(bookList, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "delete/{bookId}")
@@ -48,6 +49,7 @@ public class BookController {
         String msg = "Book With ID :" + bookId + " Deleted Successfully";
         return new ResponseEntity<String>(msg, HttpStatus.OK);
     }
+
     @PutMapping(value = "/update")
     @PreAuthorize("hasAuthority('ADMIN')|| hasAuthority('USER')")
     @Operation(summary = "This Method is for update the Book Details and this method returns Updated Book Object")
@@ -59,21 +61,19 @@ public class BookController {
     @GetMapping(value = "/fetchWithPagination/{offset}/{pageSize}")
     @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "This Method is for fetching all the  Book Details with Pagination Details")
-    public ResponseEntity<Page<Book>> getAllWithPagination(@PathVariable("offset")  int offset , @PathVariable("pageSize") int pagSize){
-        Page<Book> books = bookService.getAllBooksWithPagination(offset,pagSize);
-        return new ResponseEntity<>(books,HttpStatus.OK);
+    public ResponseEntity<Page<Book>> getAllWithPagination(@PathVariable("offset") int offset, @PathVariable("pageSize") int pagSize) {
+        Page<Book> books = bookService.getAllBooksWithPagination(offset, pagSize);
+        return new ResponseEntity<>(books, HttpStatus.OK);
 
     }
 
     @GetMapping(value = "/searchByKeyword")
     @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER')")
     @Operation(summary = "This Method is for fetching Book object By Providing a keyword")
-    public ResponseEntity<List<Book>> getAllBooksWithKeyword(@RequestParam String keyWord){
+    public ResponseEntity<List<Book>> getAllBooksWithKeyword(@RequestParam String keyWord) {
         List<Book> searchBookList = bookService.getSearchByKeyword(keyWord);
-        return new ResponseEntity<List<Book>>(searchBookList,HttpStatus.OK);
+        return new ResponseEntity<List<Book>>(searchBookList, HttpStatus.OK);
     }
-
-
 
 
 }

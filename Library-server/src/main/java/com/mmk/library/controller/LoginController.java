@@ -8,6 +8,7 @@ import com.mmk.library.model.UserRequest;
 import com.mmk.library.model.UserToken;
 import com.mmk.library.service.RefreshTokenService;
 import com.mmk.library.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,7 @@ public class LoginController {
 
 
     @PostMapping(value = "/login")
+    @Operation(summary = "This Method is for Login purpose by providing UserRequest Modal")
     public ResponseEntity<UserToken> login(@RequestBody UserRequest userRequest) {
         //System.out.println("User name : "+userRequest.getUserName()+" password : "+userRequest.getPassword());
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUserName(), userRequest.getPassword()));
@@ -46,6 +48,7 @@ public class LoginController {
     }
 
     @PostMapping(value = "/refreshToken")
+    @Operation(summary = "This Method is for recreating the JWT Token by providing Refresh Token Modal")
     public ResponseEntity<UserToken> createRefreshToken(@RequestBody RefreshToken refreshToken) {
         return refreshTokenService.findByToken(refreshToken.getRefreshToken())
                 .map(refreshTokenService::VerifyTokenExpiration)

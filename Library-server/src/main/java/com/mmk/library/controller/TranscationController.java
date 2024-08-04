@@ -2,6 +2,7 @@ package com.mmk.library.controller;
 
 import com.mmk.library.entity.TransactionDetail;
 import com.mmk.library.service.TransactionService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,8 @@ public class TranscationController {
 
     @GetMapping(value = "/newBorrow")
     @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER') ")
-    public ResponseEntity<TransactionDetail> newTranscationCreated(@RequestParam int userId, @RequestParam long bookId){
+    @Operation(summary = "This Method is for creating the new Borrow Transaction Object by providing User ID and Book Id as Input Parameter")
+    public ResponseEntity<TransactionDetail> newTransactionCreated(@RequestParam int userId, @RequestParam long bookId){
 
         TransactionDetail newTransactionDetail = transactionService.newTransaction(userId,bookId);
 

@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Old client folder was deleted">
-      <change afterPath="$PROJECT_DIR$/Library-server/src/test/java/com/mmk/library/controller/bookControllerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-client/src/pages/Books.js" beforeDir="false" afterPath="$PROJECT_DIR$/Library-client/src/pages/Books.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Library-server/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0fb7f337-605b-425a-95e8-e58c9fddf176" name="Default Changelist" comment="Old client folder was deleted" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

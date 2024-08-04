@@ -12,10 +12,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -53,7 +50,9 @@ public class BookRequestController {
         return new ResponseEntity<BookRequest>(updatedBookRequest,HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/allRequests")
+    @PreAuthorize("hasAuthority('ADMIN') || hasAuthority('USER') ")
+    @Operation(summary = "This Method is for fetching all the BookRequests objects")
     public ResponseEntity<List<BookRequest>> getAllBookRequest (){
         List<BookRequest> allBookRequest = bookRequestService.getAllBookRequest();
         return new ResponseEntity<List<BookRequest>>(allBookRequest,HttpStatus.OK);
