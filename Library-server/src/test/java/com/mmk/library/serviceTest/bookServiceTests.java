@@ -1,6 +1,7 @@
 package com.mmk.library.serviceTest;
 
 import com.mmk.library.entity.Book;
+import com.mmk.library.exception.BookNotFoundException;
 import com.mmk.library.repository.BookRepository;
 import com.mmk.library.service.BookServiceImpl;
 import org.assertj.core.api.Assertions;
@@ -12,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.Assertions.*;
 
 import java.util.Date;
 import java.util.List;
@@ -90,30 +92,35 @@ public class bookServiceTests {
 
     }
 
-//    @DisplayName("JUnit test for updateBook method")
-//    @Test
-//    public void givenBookObject_whenUpdateBook_thenReturnUpdatedBook() {
-//
-//        Mockito.when(bookRepository.save(book)).thenReturn(book).thenThrow(BookNotFoundException.class);
-//        book.setAuthorName("MMK");
-//        Book updatedBook = bookServiceImpl.updateBook(book);
-//        Assertions.assertThat(updatedBook.getAuthorName()).isEqualTo("MMK");
-//
-//    }
+    @DisplayName("JUnit test for updateBook method")
+    @Test
+    public void givenBookObject_whenUpdateBook_thenReturnUpdatedBook() {
+
+        Mockito.when(bookRepository.findById(2L)).thenReturn(Optional.of(book));
+        //Mockito.when(bookRepository.findById(2L)).thenReturn(Optional.empty());
+        book.setAuthorName("MMK");
+        Mockito.when(bookRepository.save(book)).thenReturn(book);
+        Book updatedBook = bookServiceImpl.updateBook(book);
+
+        //org.junit.jupiter.api.Assertions.assertThrows(BookNotFoundException.class,()->bookServiceImpl.updateBook(book));
+        Assertions.assertThat(updatedBook.getAuthorName()).isEqualTo("MMK");
+
+    }
 
 
-//    @DisplayName("JUnit test for deleteBook method")
-//    @Test
-//    public void givenBookId_whenDeleteBook_thenNothing() {
-//
-//        long bookId = 2L;
-//
-//        Mockito.doNothing().when(bookRepository).deleteById(bookId);
-//
-//        bookServiceImpl.deleteBook(bookId);
-//
-//        Mockito.verify(bookRepository, Mockito.times(1)).deleteById(bookId);
-//    }
+    @DisplayName("JUnit test for deleteBook method")
+    @Test
+    public void givenBookId_whenDeleteBook_thenNothing() {
+
+        long bookId = 2L;
+
+        //Mockito.when(bookRepository.findById(2L)).thenReturn(Optional.empty());
+        //org.junit.jupiter.api.Assertions.assertThrows(BookNotFoundException.class,()->bookServiceImpl.deleteBook(bookId));
+        Mockito.when(bookRepository.findById(2L)).thenReturn(Optional.of(book));
+        Mockito.doNothing().when(bookRepository).deleteById(bookId);
+        bookServiceImpl.deleteBook(bookId);
+        Mockito.verify(bookRepository, Mockito.times(1)).deleteById(bookId);
+    }
 
 
 }
